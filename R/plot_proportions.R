@@ -65,7 +65,7 @@ plot_proportions <- function(deconvoluted, method = 'svr', signature = 'sig1') {
     # plot
     g <- ggplot(data = dat, aes(y = .data$Proportions, x = .data$Sample, fill = .data$CellType)) +
         geom_bar(position="stack", stat="identity") +
-        scale_fill_manual(values = gg_color_hue(unique(dat$CellType),l=50)) +
+        scale_fill_manual(values = colorRamps::primary.colors(n = length(unique(dat$CellType)))) +
         theme_bw() +
         theme(
             panel.grid.major.x = element_blank(),
